@@ -3,10 +3,21 @@
 
 // PART 1: SHOW A FORTUNE
 
+function printedFortune(results){
+    var fortune = results;
+    $('#fortune-text').html(fortune);
+    console.log(fortune);
+}
+
+
 function showFortune(evt) {
+    $.get('/fortune', printedFortune);
+    console.log("Fortune was printed");
+
 
     // TODO: get the fortune and show it in the #fortune-text div
 }
+
 
 $('#get-fortune-button').on('click', showFortune);
 
