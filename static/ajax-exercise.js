@@ -26,12 +26,16 @@ $('#get-fortune-button').on('click', showFortune);
 
 
 // PART 2: SHOW WEATHER
+function displayForecast(results) {
+    var forecast = results.forecast;
+    $('#weather-info').html(forecast);
+}
 
 function showWeather(evt) {
     evt.preventDefault();
 
-    var url = "/weather?zipcode=" + $("#zipcode-field").val();
-
+    var url = "/weather.json?zipcode=" + $("#zipcode-field").val();
+    $.get(url, displayForecast);
     // TODO: request weather with that URL and show the forecast in #weather-info
 }
 
